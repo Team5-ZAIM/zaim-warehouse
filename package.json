@@ -1,0 +1,19 @@
+{
+  "name": "warehouseproject",
+  "version": "1.0.0",
+  "description": "Warehouse Organizer Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team5-ZAIM/zaim-warehouse.git"
+  },
+  "author": "Team5",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team5-ZAIM/zaim-warehouse/issues"
+  },
+  "homepage": "https://github.com/Team5-ZAIM/zaim-warehouse#readme"
+}
