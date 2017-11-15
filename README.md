@@ -8,10 +8,10 @@
 ## npm install mysql 
 # Create file named config.json in project directory and insert MySQL Connection Credentials
 ## {
-## "host" : "<HOST_NAME>"
-## "user" : "<USER_NAME>"
-## "password" : "<PASSWORD>" 
-## "database" : "<DATABASE>"
+## "host" : "<_HOSTNAME_>"
+## "user" : "<_USERNAME_>"
+## "password" : "<_PASSWORD_>" 
+## "database" : "<_DATABASE_>"
 ## }
 # Command to start application
 ## node app.js
