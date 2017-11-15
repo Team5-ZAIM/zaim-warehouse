@@ -5,7 +5,10 @@
 # Command to install Express from console
 ## npm install express --save
 # Command to install MySQL
-## npm install mysql 
+## npm install mysql --save
+# Instal cors and body-parser
+## npm install cors --save
+## npm install body-parser --save
 # Create file named config.json in project directory and insert MySQL Connection Credentials
 ## {
 ## "host" : "<_HOSTNAME_>"
