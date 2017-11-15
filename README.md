@@ -14,4 +14,4 @@
 ## "database" : "<_DATABASE_>"
 ## }
 # Command to start application
-## node app.js
+## npm start
