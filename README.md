@@ -11,6 +11,7 @@
 ## "host" : "<HOST_NAME>"
 ## "user" : "<USER_NAME>"
 ## "password" : "<PASSWORD>" 
+## "database" : "<DATABASE>"
 ## }
 # Command to start application
 ## node app.js
