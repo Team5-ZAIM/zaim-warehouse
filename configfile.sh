@@ -1,6 +1,6 @@
 # Create file named config.json in project directory and insert MySQL Connection Credentials
-echo "Creating package.json file"
-printf "{\n" > package.json
+echo "Creating config.json file"
+printf "{\n" > config.json
 printf "Hostname: "
 read HNINPUT
 printf "\t\"host\": \"$HNINPUT\"\n" >> config.json
