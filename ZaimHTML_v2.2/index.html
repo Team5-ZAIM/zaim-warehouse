@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<!-- Main index.html page -->
+<head>
+	<title>Zaim</title>
+	<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <!--<iframe src="navbar.html" width="100%" frameBorder="0"></iframe>-->
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #000;
+}
+
+iframe {
+    position:absolute;
+    z-index: 9999;
+}
+
+/* The only rule that matters */
+#video-background {
+/*  making the video fullscreen  */
+  position: auto;
+  top: 0;
+  left: 0;
+  
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+    transform: translateX(0%) translateY(-12%);
+    background-size: cover; 
+}
+
+.bg {
+    /* The image used */
+    background-image: url("ZAiM Technologies Logo 2.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<div>
+    <iframe src="navbar.html" width="100%" frameBorder="0"></iframe>
+    <video autoplay loop id="video-background" muted plays-inline>
+  <source src="Zaim new test.mp4" type="video/mp4" allowfullscreen>
+</video>
+</div>
+</body>
+</html>
