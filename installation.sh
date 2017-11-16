@@ -1,9 +1,10 @@
 # Script to automatically install Zaim onto a server
 
 # Install Node.js and NPM
-sudo apt-get install python-software-properties
+sudo apt-get install -y python-software-properties
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo apt-get install -y npm
 
 # Install Express from console
 npm install express --save
