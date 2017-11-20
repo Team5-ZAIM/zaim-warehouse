@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!-- inventory.html-->
+<head>
+		<link rel="stylesheet" href="stylesheet.css">
+		<link rel="shortcut icon" href="ZAIM.ico">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0, maximum-scale=1">
+        <title>Inventory</title>
+        <iframe src="navbar.html" width="100%" frameBorder="0"></iframe>
+        
+
+  
+<style> 
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	}
+
+.sidenav, .sidenav ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.sidenav li {
+    position:relative;
+    z-index:1;
+
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    z-index: 9998;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.ui-menu { width: 150px; }
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('icon-search.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 50%;
+}
+
+.wrapper {
+            text-align: center;
+        }
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('icon-search.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 75%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 1s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 1s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  padding: 16px 32px;
+  border-radius: 12px;
+}
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 33.33333333%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media (max-width: 800px) {
+    .column {
+        width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+<!--<nav>-->
+<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a><li>
+    <li class="sub"><a href="#">Inventory</a>
+        <!--<ul>-->
+        <!--<div class="dropdown">
+  
+	    <button class="dropbtn"><a href="#">Category</a></button>
+        -->
+        <li class="sub-sub"><a href="#">Category</a>
+		    <ul>
+		        <div class=wrapper>
+		        <select name="dropdown">
+		        <!--<div class="dropdown-content">-->
+		        <option value="options">--Please Select--</option>
+			    <option><li><a href="#">Appliances</a></li></option>
+			    <option><li><a href="#">Cameras</a></li></option>
+	            <option><li><a href="#">Car Electronics</a></li></option>
+	            <option><li><a href="#">Computers</a></li></option>
+	            <option><li><a href="#">Consoles</a></li></option>
+	            <option><li><a href="#">Mobile</a></li></option>
+	            <option><li><a href="#">Printers</a></li></option>
+	            <option><li><a href="#">TVs</a></li></option>
+	            <!--</div>-->
+	            </select>
+	            </div>
+	        </ul>
+        </li>
+        <!--</ul>-->
+
+        
+	</li>
+    <li><a href="login.html">Login</a></li>
+    <ul>
+		<li><input type="radio" name="appliances" value="appliancename" checked>Name (A-Z)<br><li>
+		<li><input type="radio" name="appliances" value="priceHL" checked>Price (High to Low)<br><li>
+		<li><input type="radio" name="appliances" value="priceLH" checked>Price (Low to High)<br><li>
+    </ul>
+</div>
+<!--</nav>-->
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>    
+
+<!-- end of side nav menu -->
+
+<form id="itemMenu" action="inventory.js" method="post">
+    <div class=wrapper>
+        <input type="text" name="search" placeholder="Search">
+        <p></p>
+        <select name="sortMenu">
+            <option value="Select">--Select--</option>
+            <option value="name">Name (A-Z)</option>
+            <option value="priceHL">Price (High to Low)</option>
+            <option value="priceLH">Price (Low to High)</option>
+        </select>
+       
+       <select name="categoryMenu">
+            <option value="Category">--Category--</option>
+            <option value="Appliances">Appliances</option>
+            <option value="Cameras">Camera</option>
+            <option value="Car">Car</option>
+            <option value="Computers">Computers</option>
+            <option value="Consoles">Consoles</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Printers">Printers</option>
+            <option value="TVs">TVs</option>
+        </select>
+       
+       <!--
+        <ul id="menu"> 
+            <li><div>Appliances</div></li> 
+            <li><div>Cameras</div></li>
+                <ul><li><div>DSLR</div></li></ul>
+            <li><div>Car Electronics</div><ul><div>Radio</div></ul></li> 
+            <li><div>Computers</div></li> 
+            <li><div>Consoles</div></li> 
+            <li><div>Mobile</div></li> 
+            <li><div>Mobile</div></li> 
+            <li><div>Printers</div></li> 
+            <li><div>TVs</div></li> 
+        </ul> 
+        -->
+
+        
+        <!-- ------------------------- -->
+        
+    
+    <input type="submit" name="search" value="Search">Search</input>
+    <!--<div class="container">-->
+    <input type="submit" name="add" value="Add"><a style="text-decoration:none;color:black"href="template_add.html">Add</a></input>
+    <!--</div>-->
+    </div>
+</form>
+
+<iframe src="inventory_table.php"></iframe>
+
+    
+    <?php 
+    
+        $link = mysql_connect("mysql.clarkson.edu", "zaim_tech", "z1@m_T3c4");
+        mysql_select_db(PicTempTest);
+        $sql = "SELECT image FROM PicTempTest WHERE PicID=1234";
+        $result = mysql_query("$sql");
+        header("Content-type: image/jpeg");
+        echo mysql_result($result, 0);
+        mysql_close($link);
+    
+    ?>
+    
+
+
+<div class="row"> 
+  <div class="column">
+      <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 1</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 4</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 7</a></button>
+    </div>
+    </div> </div>
+  </div>
+  <div class="column">
+      <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 2</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 5</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 8</a></button>
+    </div>
+    </div> </div>
+  </div>
+  <div class="column">
+      <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 3</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 6</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="Product1_Test.html">Product 9</a></button>
+    </div>
+    </div> </div>
+  </div>
+</div>
+<!-- </div> -->
+<!-- old picture style grid -->
+<!-- 
+<style>
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media (max-width: 800px) {
+    .column {
+        width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+</style>
+-->
+<!-- Photo Grid -->
+<!--
+<div class="row"> 
+  <div class="column">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+  </div>
+    <div class="column">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    </div>
+        <div class="column">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    </div>
+</div>
+-->
+    <script>
+    function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+        
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>  
+    </body>
+</html>
+
