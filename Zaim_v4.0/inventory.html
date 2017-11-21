@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!-- inventory.html-->
+<html>
+<head>
+		<link rel="stylesheet" href="stylesheet.css">
+		<link rel="shortcut icon" href="ZAIM.ico">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0, maximum-scale=1">
+        <title>Inventory</title>
+        
+
+  
+<style> 
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.ui-menu { width: 150px; }
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('icon-search.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 50%;
+}
+
+.wrapper {
+            text-align: center;
+        }
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('icon-search.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 75%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 1s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 1s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  padding: 16px 32px;
+  border-radius: 12px;
+}
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 33.33333333%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media (max-width: 800px) {
+    .column {
+        width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+        <iframe src="navbar.html" width="100%" frameBorder="0"></iframe>
+
+
+    <div class=wrapper>
+        <form id="inventorySearch" method="POST" action="inventory.php">
+            <!-- <input type="text" name="search" action="inventory_table.php" placeholder="Search"> -->
+            <input type="text" name="search" placeholder="Search">
+            <p></p>
+            <select name="sortMenu">
+                <option value="Select">--Select--</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="priceHL">Price (High to Low)</option>
+                <option value="priceLH">Price (Low to High)</option>
+            </select>
+           
+           <select name="categoryMenu">
+                <option value="Category">--Category--</option>
+                <option value="Appliances">Appliances</option>
+                <option value="Cameras">Camera</option>
+                <option value="Car">Car</option>
+                <option value="Computers">Computers</option>
+                <option value="Consoles">Consoles</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Printers">Printers</option>
+                <option value="TVs">TVs</option>
+                <option value="Other">Other</option>
+            </select>
+            <button type="button"><a style="text-decoration:none;color:black" href="template_add.html">Add</a></button>
+            <button type="button"><a style="text-decoration:none;color:black" href="template_edit.html">Edit</a></button>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+       
+       <!--
+        <ul id="menu"> 
+            <li><div>Appliances</div></li> 
+            <li><div>Cameras</div></li>
+                <ul><li><div>DSLR</div></li></ul>
+            <li><div>Car Electronics</div><ul><div>Radio</div></ul></li> 
+            <li><div>Computers</div></li> 
+            <li><div>Consoles</div></li> 
+            <li><div>Mobile</div></li> 
+            <li><div>Mobile</div></li> 
+            <li><div>Printers</div></li> 
+            <li><div>TVs</div></li> 
+        </ul> 
+        -->
+
+        
+        <!-- ------------------------- -->
+        
+
+
+
+    
+    
+
+<!--
+<div class="row"> 
+  <div class="column">
+      <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 1</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 4</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 7</a></button>
+    </div>
+    </div> </div>
+  </div>
+  <div class="column">
+      <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 2</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 5</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 8</a></button>
+    </div>
+    </div> </div>
+  </div>
+  <div class="column">
+      <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 3</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 6</a></button>
+    </div>
+    </div> </div>
+    <div class="container">
+    <img src="ZAiM Technologies Logo 2.png" alt="Avatar" class="image" style="width:100%">
+    <div class="middle">
+    <div class="text">
+        <button type="button" style="background-color:transparent;border: none">
+        <a style="text-decoration:none;color:black" href="template_edit.php">Product 9</a></button>
+    </div>
+    </div> </div>
+  </div>
+</div>
+-->
+<!-- </div> -->
+<!-- old picture style grid -->
+<!-- 
+<style>
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media (max-width: 800px) {
+    .column {
+        width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+</style>
+-->
+<!-- Photo Grid -->
+<!--
+<div class="row"> 
+  <div class="column">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+  </div>
+    <div class="column">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    </div>
+        <div class="column">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+        <img src="ZAiM Technologies Logo 2.png" style="width:100%">
+    </div>
+</div>
+-->
+    
+    </body>
+</html>
+

@@ -1,0 +1,75 @@
+body {
+    background-color: transparent;
+    color: white;
+}
+
+nav {
+	overflow: hidden;
+	background-color: #0EA910;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: #a3fffa;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.toptitle {
+    color: inherit;
+    text-decoration: inherit;
+    text-shadow: 3px 2px green;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #0a720b;
+}
+
+nav a:hover {
+  background-color: #10CB13;
+  color: black;
+}
+
+nav a.active {
+	background-color: #eaf2ff;
+	color: white;
+}
+
+.navigation {
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #a3fffa;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #0BF319;
+  color: black;
+}
+
+.topnav a.active {
+	background-color: #eaf2ff;
+	color: white;
+}
+
+.current {
+  background-color: #0E9910;   
+  color: white;
+}
+
+#login {
+  position: absolute;
+  right: 1%;
+  width: 5%;
+}
