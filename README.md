@@ -1,5 +1,8 @@
 # zaim-warehouse
+# Latest version is V5 Final
 #
+# 
+# -NODE.js setup information (Not used in final Release)
 # Install NODE.js and NPM
 #
 # Command to install Express from console
