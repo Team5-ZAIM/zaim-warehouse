@@ -1,6 +1,6 @@
 # zaim-warehouse
-# Latest version is V5 Final
-#
+# Latest version is Zaim_v5.0-Final
+# 
 # 
 # -NODE.js setup information (Not used in final Release)
 # Install NODE.js and NPM
